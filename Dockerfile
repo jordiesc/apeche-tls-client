@@ -9,6 +9,8 @@ COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./myhost.conf /usr/local/apache2/sites-available/myhost.conf
 
 RUN mkdir -p /var/www/html
+
+RUN chmod -R 775 /var/www/html 
 COPY ./index.html /var/www/html
 
 

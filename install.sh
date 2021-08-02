@@ -1,1 +1,1 @@
-./create_tls_files.sh localhost
+./create_tls_keys.sh localhos
