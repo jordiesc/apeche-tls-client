@@ -1,7 +1,14 @@
 version: "3.3"
 services:
-    application:
+    springapp:
         build: https://github.com/jordiesc/java-springboot-basic.git
         image: simpleweb
         ports: 
-            - "8080:8080" 
+            - "8080:8080"
+    apacheweb:
+        build: .
+        image: apacheweb 
+        ports: 
+            - "80:80"
+            - "443:443"
+              
