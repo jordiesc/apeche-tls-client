@@ -5,6 +5,8 @@ echo "eldomain: $2"
 CN="${S1=`hostname`}.${eldomain=org}"
 echo $CN
 
+mkdir -p keys
+
 # Generate self signed root CA cert
 openssl req -nodes -x509 -newkey rsa:2048 -keyout ca.key -out ca.crt -subj "/CN=`hostname`"
 
@@ -27,4 +29,8 @@ openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAserial ca.srl -out 
 
 # Create client PEM file
 cat client.key client.crt > client.pem
+
+mv ca.* keys
+mv client.* keys
+mv server.* keys
 

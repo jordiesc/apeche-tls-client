@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+    application:
+        build: https://github.com/jordiesc/java-springboot-basic.git
+        image: simpleweb
+        ports: 
+            - "8080:8080" 

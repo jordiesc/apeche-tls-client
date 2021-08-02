@@ -1,0 +1,28 @@
+== TLS keys
+
+To generate keys there is an script create_tls_keys.sh. this can hava a `fqdn` has a first paramater.
+
+
+== generate httd.conf
+
+To export the httpd conf
+
+[bash]
+----
+sudo docker run -t  httpd:2.4 cat /usr/local/apache2/conf/httpd.conf | tee my-httpd.conf
+----
+
+it has been added the folow modules
+
+----
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+LoadModule ssl_module modules/mod_ssl.so
+----
+
+== docker apache
+
+docker run -d -p 8080:80 -p 443:443 myapache
+docker build . -t myapache
