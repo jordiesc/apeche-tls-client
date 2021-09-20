@@ -26,3 +26,14 @@ LoadModule ssl_module modules/mod_ssl.so
 
 docker run -d -p 8080:80 -p 443:443 myapache
 docker build . -t myapache
+
+
+== execute it 
+[bash]
+----
+➜  ✗ curl https://localhost/api --insecure
+{"headers":{"x-forwarded-server":"172.27.0.3","x-forwarded-host":"localhost","host":"springapp:8080","connection":"Keep-Alive","x-forwarded-for":"172.27.0.1","user-agent":"curl/7.68.0","accept":"*/*"},"parameters":{},"url":"/request","method":"GET","body":""}%                                                                                          ➜  httpd-tls-client git:(master) ✗ curl https://localhost/api/hola --insecure
+{"headers":{"x-forwarded-server":"172.27.0.3","x-forwarded-host":"localhost","host":"springapp:8080","connection":"Keep-Alive","x-forwarded-for":"172.27.0.1","user-agent":"curl/7.68.0","accept":"*/*"},"parameters":{},"url":"/request/hola","method":"GET","body":""}%                                                                                     ➜  httpd-tls-client git:(master) ✗ curl https://localhost/api/hola\?param1\=param1 --insecure
+{"headers":{"x-forwarded-server":"172.27.0.3","x-forwarded-host":"localhost","host":"springapp:8080","connection":"Keep-Alive","x-forwarded-for":"172.27.0.1","user-agent":"curl/7.68.0","accept":"*/*"},"parameters":{"param1":"param1"},"url":"/request/hola","method":"GET","body":""}%   
+
+----
