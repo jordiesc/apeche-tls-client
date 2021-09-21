@@ -38,6 +38,11 @@ docker build . -t myapache
 
 ----
 
+curl with the client certificate locate in keys folder
+
+----
+curl --cert client.crt --key client.key  --cacert ca.crt  https://localhost/api/request\?hola --insecure\n
+----
 
 # How to create an HTTPS certificate for localhost domains
 
