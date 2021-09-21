@@ -8,6 +8,8 @@ COPY ./keys/server.* /etc/apache2/ssl/
 COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./myhost.conf /usr/local/apache2/sites-available/myhost.conf
 
+RUN chmod -R 775 /etc/apache2/ssl
+RUN ls -lia /etc/apache2/ssl
 RUN mkdir -p /var/www/html
 
 RUN chmod -R 775 /var/www/html 

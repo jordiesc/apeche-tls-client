@@ -8,7 +8,8 @@ echo $CN
 mkdir -p keys
 
 # Generate self signed root CA cert
-openssl req -nodes -x509 -newkey rsa:2048 -keyout ca.key -out ca.crt -subj "/CN=`hostname`"
+# the CN of the CA must to be different thant server certificate
+openssl req -nodes -x509 -newkey rsa:2048 -keyout ca.key -out ca.crt -subj "/C=US/CN=Example-Root-CA"
 
 
 # Generate server cert to be signed
