@@ -1,3 +1,18 @@
+== overview
+
+sample of tls client validation with httpd and proxy to spring boot appliation
+it has been used docker-compse that it mades a build of httpd image with the Dockerfile
+
+== Running
+
+after the clone pull. 
+
+*  create keys with  `./create_tls_keys.sh`
+*  run `docker-compose up`
+*  testing with curl see below.
+
+
+
 == TLS keys
 
 To generate keys there is an script create_tls_keys.sh. this can hava a `fqdn` has a first paramater.
